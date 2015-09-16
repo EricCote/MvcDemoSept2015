@@ -171,6 +171,7 @@
     <Compile Include="Controllers\GestionSubController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Extensions\MyExtensions.cs" />
     <Compile Include="Filters\MyLogAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -270,6 +271,7 @@
     <Content Include="Views\Shared\EditorTemplates\categories.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Home\ErreurAbonnement.cshtml" />
+    <Content Include="Views\Shared\_titre.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

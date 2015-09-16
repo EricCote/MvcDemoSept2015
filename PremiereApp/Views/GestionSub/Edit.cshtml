@@ -1,10 +1,13 @@
-﻿@model PremiereApp.Models.Subscriber
+﻿@using PremiereApp.Extensions
+@model PremiereApp.Models.Subscriber
 
 @{
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+@Html.Partial("_Titre")
+@Html.Img(50,50,"wow.gif")
+
 
 @using (Html.BeginForm())
 {
@@ -24,6 +27,7 @@
             </div>
         </div>
 
+      
         <div class="form-group">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -60,3 +64,9 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@Html.Partial("_Titre")
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
