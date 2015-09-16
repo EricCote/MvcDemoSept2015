@@ -1,0 +1,9 @@
+﻿@using PremiereApp.Models
+@model ICollection<Category>
+
+@foreach (Category cat in Model)
+{
+    @Html.CheckBox(cat.CategoryName,true) 
+    @Html.Label(cat.CategoryName)
+    @Html.Raw(" ")
+}

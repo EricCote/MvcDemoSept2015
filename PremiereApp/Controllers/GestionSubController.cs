@@ -38,7 +38,11 @@ namespace PremiereApp.Controllers
         // GET: GestionSub/Create
         public ActionResult Create()
         {
-            return View();
+            Subscriber abonne = new Subscriber()
+            {
+                CreationDate = DateTime.Now
+            };
+            return View(abonne);
         }
 
         // POST: GestionSub/Create

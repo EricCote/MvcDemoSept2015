@@ -17,6 +17,7 @@ namespace PremiereApp.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Display(Name = "Date Création")]
+        [UIHint("DateVert")]
         public DateTime CreationDate { get; set; }
 
         public virtual ICollection<Category> Categories { get; set; }

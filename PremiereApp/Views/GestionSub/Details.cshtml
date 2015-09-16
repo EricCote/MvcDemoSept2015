@@ -15,7 +15,12 @@
         </dt>
 
         <dd>
+            @*<input type="text" value="@Model.Name" />*@
+            @*@Html.TextBox("name", Model.Name)*@
+            @*@Html.TextBoxFor(model=>model.Name)*@
+            @*@Html.EditorFor(model=>model.Name)*@
             @Html.DisplayFor(model => model.Name)
+     
         </dd>
 
         <dt>
@@ -33,6 +38,15 @@
         <dd>
             @Html.DisplayFor(model => model.CreationDate)
         </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categories)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categories,"categories")
+        </dd>
+
 
     </dl>
 </div>

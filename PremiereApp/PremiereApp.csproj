@@ -262,6 +262,10 @@
     <Content Include="Views\GestionSub\Details.cshtml" />
     <Content Include="Views\GestionSub\Edit.cshtml" />
     <Content Include="Views\GestionSub\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateVert.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\categories.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
