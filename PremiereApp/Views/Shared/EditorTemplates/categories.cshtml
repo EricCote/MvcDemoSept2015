@@ -3,8 +3,8 @@
 
 @foreach (Category cat in ViewBag.listeCategories)
 {
-    @Html.CheckBox(cat.CategoryName, Model.Any(
-              model=>model.CategoryName==cat.CategoryName)) 
+    @Html.CheckBox(  cat.CategoryName, Model.Any(
+              model => model.CategoryName == cat.CategoryName))
     @Html.Label(cat.CategoryName)
     @Html.Raw(" ")
 }

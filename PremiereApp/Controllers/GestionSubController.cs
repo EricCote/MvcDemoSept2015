@@ -25,13 +25,16 @@ namespace PremiereApp.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                id = 1;
             }
             Subscriber subscriber = db.Subscribers.Find(id);
             if (subscriber == null)
             {
                 return HttpNotFound();
             }
+ 
+            //ViewData["listeCategories"] = categories;
+            ViewBag.listeCategories = db.Categories.ToList();
             return View(subscriber);
         }
 
@@ -58,7 +61,6 @@ namespace PremiereApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(subscriber);
         }
 
@@ -74,6 +76,7 @@ namespace PremiereApp.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.listeCategories = db.Categories.ToList();
             return View(subscriber);
         }
 
@@ -82,16 +85,33 @@ namespace PremiereApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SubscriberId,Name,Email,CreationDate")] Subscriber subscriber)
+        public ActionResult Edit(Subscriber subscriber)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(subscriber).State = EntityState.Modified;
+                db.Entry(subscriber).Collection(p => p.Categories).Load();
+
+                subscriber.Categories.Clear();
+                foreach (Category cat in db.Categories)
+                {
+                    if (Request.Params["Categories."
+                              + cat.CategoryName].StartsWith("true"))
+                    {
+                        subscriber.Categories.Add(cat);
+                    }
+                }
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+   
+            ViewBag.listeCategories = db.Categories.ToList();
             return View(subscriber);
         }
+
+   
+
 
         // GET: GestionSub/Delete/5
         public ActionResult Delete(int? id)
