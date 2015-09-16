@@ -1,7 +1,13 @@
-﻿
+﻿@using System.Globalization
 @{
     ViewBag.Title = "Merci";
 }
 
 <h2>Merci</h2>
+
+@foreach (CultureInfo langue in CultureInfo.GetCultures(CultureTypes.SpecificCultures))
+{
+   @langue.EnglishName @:,
+
+}
 

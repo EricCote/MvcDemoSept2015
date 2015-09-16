@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using PremiereApp.Filters;
+using System.Web;
 using System.Web.Mvc;
 
 namespace PremiereApp
@@ -8,6 +9,7 @@ namespace PremiereApp
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new MyLogAttribute());
         }
     }
 }

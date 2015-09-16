@@ -1,4 +1,5 @@
-﻿using PremiereApp.Models;
+﻿using PremiereApp.Filters;
+using PremiereApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,16 @@ using System.Web.Mvc;
 
 namespace PremiereApp.Controllers
 {
+    [MyLog]
+    [HandleError(View = "wow")]
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
             return View();
         }
+
 
         public ActionResult About()
         {
@@ -51,6 +56,7 @@ namespace PremiereApp.Controllers
             return View(data);
         }
 
+        [HandleError(View="ErreurAbonnement")]
         [HttpPost]
         public ActionResult Abonnement(Subscriber abonne)
         {

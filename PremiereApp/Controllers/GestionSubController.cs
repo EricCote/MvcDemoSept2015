@@ -10,6 +10,7 @@ using PremiereApp.Models;
 
 namespace PremiereApp.Controllers
 {
+
     public class GestionSubController : Controller
     {
         private NewsContext db = new NewsContext();
