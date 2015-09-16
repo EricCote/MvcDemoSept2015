@@ -1,0 +1,27 @@
+﻿@using PremiereApp.Models
+@{
+    ViewBag.Title = "Abonnement";
+}
+
+<h2>Abonnement</h2>
+
+
+<form method="post"  >
+    <div class="form-group form-horizontal">
+        <input type="text" name="Name" placeholder="Nom" class="form-control" />
+
+        <input type="email" name="Email" placeholder="Courriel" class="form-control" />
+
+        @foreach (Category cat in Model) { 
+
+            <input type="checkbox" id="@cat.CategoryName" 
+                   name="@cat.CategoryName" 
+                   class="checkbox checkbox-inline" /> 
+            <label for="@cat.CategoryName" >
+                     @cat.CategoryName
+            </label><br />
+        }
+
+        <br /><button class="btn btn-default">Envoyer</button>
+    </div>
+</form>
