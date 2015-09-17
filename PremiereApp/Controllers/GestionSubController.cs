@@ -13,7 +13,18 @@ namespace PremiereApp.Controllers
 
     public class GestionSubController : Controller
     {
-        private NewsContext db = new NewsContext();
+        private NewsContext db;
+
+        public GestionSubController()
+        {
+            db = new NewsContext();
+        }
+
+        public GestionSubController(NewsContext ctx)
+        {
+            db = ctx;
+        }
+
 
         // GET: GestionSub
         public ActionResult Index()

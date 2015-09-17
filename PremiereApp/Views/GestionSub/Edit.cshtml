@@ -2,7 +2,7 @@
 @model PremiereApp.Models.Subscriber
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Édition";
 }
 
 @Html.Partial("_Titre")
@@ -14,7 +14,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Subscriber</h4>
+        <h4>Abbonné</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.SubscriberId)
@@ -62,7 +62,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Retour à la liste", "Index")
 </div>
 
 @Html.Partial("_Titre")
