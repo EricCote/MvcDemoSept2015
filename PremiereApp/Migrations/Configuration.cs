@@ -17,9 +17,9 @@ namespace PremiereApp.Migrations
         protected override void Seed(PremiereApp.Models.NewsContext context)
         {
             context.Categories.AddOrUpdate(
-                new Category() { CategoryName = "Sports" },
-                new Category() { CategoryName = "Techno" },
-                new Category() { CategoryName = "Musique" }
+                new Category() { CategoryId = 1, CategoryName = "Sports" },
+                new Category() { CategoryId = 2, CategoryName = "Techno" },
+                new Category() { CategoryId = 3, CategoryName = "Musique" }
               );
 
             //  This method will be called after migrating to the latest version.

@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+@media (max-width:500px) {
+    form {
+       background-color:lightpink;
+    }
+}

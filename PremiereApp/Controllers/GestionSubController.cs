@@ -27,10 +27,52 @@ namespace PremiereApp.Controllers
 
 
         // GET: GestionSub
-        public ActionResult Index()
+        public ActionResult Index(string categorie)
         {
-            return View(db.Subscribers.ToList());
+            List<SelectListItem> categories = db.Categories.
+                Select(c=>new SelectListItem()
+                           { Text= c.CategoryName,
+                             Value=c.CategoryId.ToString() }
+                       ).ToList();
+
+            categories.Insert(0, new SelectListItem() {
+                               Text = "Tous", Value = "0" });
+
+            ViewBag.category = categories;
+
+            List<Subscriber> liste;
+
+            if (categorie == null || categorie == "0"  )
+            {
+                liste = db.Subscribers.ToList();
+            }  else {
+                liste = db.Subscribers.Where(
+                    s => s.Categories.Any(
+                        c => c.CategoryId.ToString() == categorie)).
+                        ToList();
+            }
+            return View(liste);
         }
+
+        public PartialViewResult _listerAbonnes(string categorie)
+        {
+            List<Subscriber> liste;
+
+            if (categorie == null || categorie == "0")
+            {
+                liste = db.Subscribers.ToList();
+            }
+            else
+            {
+                liste = db.Subscribers.Where(
+                    s => s.Categories.Any(
+                        c => c.CategoryId.ToString() == categorie)).
+                        ToList();
+            }
+            return PartialView(liste);
+        }
+
+
 
         // GET: GestionSub/Details/5
         public ActionResult Details(int? id)

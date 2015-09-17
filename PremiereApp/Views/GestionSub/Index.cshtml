@@ -1,5 +1,6 @@
 ﻿@using PremiereApp.Extensions
 
+
 @model IEnumerable<PremiereApp.Models.Subscriber>
 
 @{
@@ -7,41 +8,64 @@
 }
 
 <h2>Index</h2>
+<div>
+    @using (Html.BeginForm("index", "GestionSub", FormMethod.Get))
+    {
+        @Html.DropDownList("categorie", (IEnumerable<SelectListItem>)ViewBag.category, new { @class = "form-control" })
+   
+    }
+</div>
 
 <p>
-    @Html.GlyphActionLink("plus",   "Creer", "Create",null)
+    @Html.GlyphActionLink("plus", "Creer", "Create", null)
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreationDate)
-        </th>
-        <th></th>
-    </tr>
+<div id="table">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreationDate)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreationDate)
-        </td>
-        <td>
-            @Html.GlyphActionLink("pencil", "Modifier", "Edit", new { id = item.SubscriberId }) |
-            @Html.GlyphActionLink("th-list", "Détails","Details", new { id = item.SubscriberId }) |
-            @Html.GlyphActionLink("trash", "Supprimer", "Delete", new { id=item.SubscriberId })
-        </td>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreationDate)
+                </td>
+                <td>
+                    @Html.GlyphActionLink("pencil", "Modifier", "Edit", new { id = item.SubscriberId }) |
+                    @Html.GlyphActionLink("th-list", "Détails", "Details", new { id = item.SubscriberId }) |
+                    @Html.GlyphActionLink("trash", "Supprimer", "Delete", new { id = item.SubscriberId })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+@section scripts {
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $('#categorie').change(function() {
+                $('#table').load(
+                    "@Url.Action("_listerAbonnes")?categorie=" +
+                         $('#categorie').val());
+            });
+        });
+    </script>
+
 }
-
-</table>
