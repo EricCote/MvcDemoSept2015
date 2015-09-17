@@ -6,7 +6,7 @@
 }
 
 @Html.Partial("_Titre")
-@Html.Img(50,50,"wow.gif")
+@*@Html.Img(50,50,"wow.gif")*@
 
 
 @using (Html.BeginForm())
@@ -65,7 +65,6 @@
     @Html.ActionLink("Retour à la liste", "Index")
 </div>
 
-@Html.Partial("_Titre")
 
 @section scripts{
     @Scripts.Render("~/bundles/jqueryval")

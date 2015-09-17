@@ -26,8 +26,9 @@ namespace PremiereApp
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "{langue}/{controller}/{action}/{id}",
+                defaults: new { langue = "en", controller = "Home", action = "Index", id = UrlParameter.Optional },
+                constraints: new { langue = "en|fr"}
             );
 
 

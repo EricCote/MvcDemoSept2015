@@ -1,4 +1,6 @@
-﻿@model IEnumerable<PremiereApp.Models.Subscriber>
+﻿@using PremiereApp.Extensions
+
+@model IEnumerable<PremiereApp.Models.Subscriber>
 
 @{
     ViewBag.Title = "Index";
@@ -7,7 +9,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.GlyphActionLink("plus",   "Creer", "Create",null)
 </p>
 <table class="table">
     <tr>
@@ -35,9 +37,9 @@
             @Html.DisplayFor(modelItem => item.CreationDate)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SubscriberId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SubscriberId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SubscriberId })
+            @Html.GlyphActionLink("pencil", "Modifier", "Edit", new { id = item.SubscriberId }) |
+            @Html.GlyphActionLink("th-list", "Détails","Details", new { id = item.SubscriberId }) |
+            @Html.GlyphActionLink("trash", "Supprimer", "Delete", new { id=item.SubscriberId })
         </td>
     </tr>
 }

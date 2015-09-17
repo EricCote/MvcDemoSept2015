@@ -1,0 +1,27 @@
+﻿[
+  {
+    "text": "Dashboard",
+    "url": "/dashboard"
+  },
+  {
+    "isDivider": true
+  },
+  {
+    "text": "Help",
+    "submenus": [
+      {
+        "url": "/documentation/GenHelp.pdf",
+        "text": "General",
+        "target": "new"
+      },
+      {
+        "isDivider": true
+      },
+      {
+        "url": "/documentation/DeployHelp.pdf",
+        "text": "Deploy Help",
+        "target": "new"
+      }
+    ]
+  }
+]

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using MvcJsonBootstrapMenu
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -20,10 +22,16 @@
                 @Html.ActionLink("InfoLettre", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
+                @*@{
+                    IEnumerable<MenuItem> monMenu = Menu.LoadFromJson(new StreamReader(Server.MapPath("~/menu/menu.json")).ReadToEnd());
+                }
+                @Html.Raw(NavBuilder.Nav(monMenu))*@
+
+
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
-                    <li>@Html.ActionLink("À propos", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @*<li>@Html.ActionLink("À propos", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                     <li>@Html.ActionLink("S'abonner", "Abonnement", "Home")</li>
                     <li>@Html.ActionLink("Gestion", "Index", "GestionSub")</li>
                 </ul>
