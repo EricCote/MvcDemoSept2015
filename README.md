@@ -18,7 +18,7 @@ Le ViewBag permet de stocker des données qui peuvent être échangées entre un
 
 -------
 
-##Usage du point d'interrogation en C#
+##Usage du point d'interrogation en C# 
 
 ###Nullable
     int? i;
@@ -73,7 +73,7 @@ Voici différents Protocoles de communication
            Platforme Smartphone)
 
 **Http**   | **Sql**
-=======|=====
+-------|-------
 GET    | SELECT
 DELETE |  DELETE
 PUT    |UPDATE
