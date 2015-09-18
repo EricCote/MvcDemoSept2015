@@ -3,6 +3,30 @@
     padding-bottom: 20px;
 }
 
+
+div.popup {
+    top:100px;
+    left:100px;
+    border-radius: .7em;
+    -moz-background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    box-shadow: 0 0 12px rgba(0,0,0,0.6);
+    background-color: #fff;
+    border-color: #ddd;
+    border-width: 2px;
+    border-style: solid;
+    color: #333;
+   
+    overflow-x: hidden;
+    padding: 1em;
+    max-width: 350px;
+    position: fixed;
+    z-index: 5;
+    display:   inline-block; /*none; */
+}
+
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
