@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+     background-color:bisque;
 }
 
 
@@ -12,7 +13,7 @@ div.popup {
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
     box-shadow: 0 0 12px rgba(0,0,0,0.6);
-    background-color: #fff;
+    background-color:bisque;
     border-color: #ddd;
     border-width: 2px;
     border-style: solid;

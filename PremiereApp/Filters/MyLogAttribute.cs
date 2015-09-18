@@ -12,17 +12,17 @@ namespace PremiereApp.Filters
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (!EventLog.Exists("Newsletter"))
-            { 
-                EventLog.CreateEventSource("Newsletter", "Newsletter");
-            }
+            //if (!EventLog.Exists("Newsletter"))
+            //{ 
+            //    EventLog.CreateEventSource("Newsletter", "Newsletter");
+            //}
 
-            EventLog.WriteEntry("Newsletter",
-                string.Format ("Controller: {0} Action: {1}",
-                  filterContext.RouteData.Values["Controller"],
-                  filterContext.RouteData.Values["Action"]
-                ));
-            base.OnActionExecuting(filterContext);
+            //EventLog.WriteEntry("Newsletter",
+            //    string.Format ("Controller: {0} Action: {1}",
+            //      filterContext.RouteData.Values["Controller"],
+            //      filterContext.RouteData.Values["Action"]
+            //    ));
+            //base.OnActionExecuting(filterContext);
         }
     }
 }

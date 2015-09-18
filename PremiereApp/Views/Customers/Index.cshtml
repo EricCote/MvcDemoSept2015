@@ -50,6 +50,7 @@
                     $.ajax({
                         dataType: "json",
                         url: "/api/commandes/" + id,
+                        method: "GET";
                         success: function (data) {
                             $("#popup").empty();
                             $("#popup").addClass("visible");

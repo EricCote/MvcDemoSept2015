@@ -263,6 +263,9 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Menu\menu.json" />
+    <None Include="Properties\PublishProfiles\AfiTestEric.pubxml" />
+    <None Include="Properties\PublishProfiles\IIS Local.pubxml" />
+    <None Include="Properties\PublishProfiles\IIS Via File Copy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

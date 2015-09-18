@@ -20,7 +20,7 @@ namespace PremiereApp.Controllers
         }
 
         // GET: api/Commandes/5
-        public IEnumerable<MyOrder> Get(int id)
+        public IEnumerable<MyOrder> Get(int id, string nom, string prenom )
         {
             using (AWContext db = new AWContext())
             {
@@ -39,7 +39,8 @@ namespace PremiereApp.Controllers
         }
 
         // DELETE: api/Commandes/5
-        public void Delete(int id)
+        [HttpDelete]
+        public void toto(int id)
         {
         }
     }
