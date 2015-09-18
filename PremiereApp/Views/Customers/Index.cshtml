@@ -12,93 +12,24 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NameStyle)
+            Nom
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+           Compagnie
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
+          
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MiddleName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Suffix)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SalesPerson)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmailAddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PasswordHash)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PasswordSalt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.rowguid)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedDate)
-        </th>
-        <th></th>
+    
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NameStyle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MiddleName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Suffix)
+        <td data-id="@item.CustomerID" >
+            @string.Format("{0} {1}", item.FirstName, item.LastName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CompanyName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SalesPerson)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmailAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PasswordHash)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PasswordSalt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.rowguid)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedDate)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CustomerID }) |
@@ -107,6 +38,34 @@
         </td>
     </tr>
 }
-
 </table>
-<div class="popup"  >Ceci est du contenu!<br />Wow!   </div>
+<div class="popup" id="popup"  ></div>
+
+@section scripts {
+    <script>
+        $(function () {
+            $("td").mouseenter(function (evt) {
+                var id = evt.target.getAttribute("data-id");
+                if(id){
+                    $.ajax({
+                        dataType: "json",
+                        url: "/api/commandes/" + id,
+                        success: function (data) {
+                            $("#popup").empty();
+                            $("#popup").addClass("visible");
+                            $.each(data, function (i, item) {
+                                $("<p />").
+                                    text("commande: " + item.OrderDate).
+                                    appendTo("#popup");
+                            });
+                        }
+                    });
+                }
+            });
+        });
+
+
+    </script>
+    
+    
+    }

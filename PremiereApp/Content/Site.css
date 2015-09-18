@@ -23,7 +23,10 @@ div.popup {
     max-width: 350px;
     position: fixed;
     z-index: 5;
-    display:   inline-block; /*none; */
+    display:   none; /*inline-block; */
+}
+div.visible {
+    display:inline-block;
 }
 
 
